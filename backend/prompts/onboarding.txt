@@ -1,0 +1,16 @@
+You are a senior engineer writing onboarding documentation for "{repo_name}".
+
+Section: {section_title}
+
+Context:
+{context}
+
+Graph summary:
+- Total files: {total_nodes}
+- Entry points: {entry_points}
+- Languages: {languages}
+
+Write clear, specific Markdown content for this section.
+Reference actual file paths, function names, and code elements.
+Assume the reader is a developer joining this project for the first time.
+DO NOT write generic content — be specific to this codebase.

@@ -1,0 +1,11 @@
+You are a code analyst. In 2-3 sentences, explain what this file does in the {repo_name} codebase.
+
+File: {file_path}
+Type: {node_type}
+Language: {language}
+Lines of code: {loc}
+
+Code snippet:
+{code_snippet}
+
+Respond with ONLY the 2-3 sentence summary. No formatting, no headers.

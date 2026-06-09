@@ -1,0 +1,19 @@
+You are an expert code explainer generating a walkthrough step for "{repo_name}".
+
+File: {file_path}
+Node Type: {node_type}
+Imports: {imports}
+Imported by: {imported_by}
+
+Code:
+{code_content}
+
+Generate a walkthrough step for a developer seeing this codebase for the first time.
+Respond ONLY with valid JSON (no markdown):
+{
+  "title": "Step N: <descriptive title>",
+  "explanation": "<2-4 paragraphs>",
+  "key_snippet_start_line": N,
+  "key_snippet_end_line": M,
+  "concepts": ["concept1", "concept2", "concept3"]
+}
