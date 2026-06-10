@@ -52,9 +52,17 @@ class Grapher(BaseAgent):
         edges: list[GraphEdge] = []
         entry_points: list[str] = []
 
-        file_map = {f.path: f for f in manifest.files}
-
+        file_map = {}
         for file_entry in manifest.files:
+            file_map.setdefault(file_entry.path, file_entry)
+
+        seen_node_ids: set[str] = set()
+        seen_entry_points: set[str] = set()
+        for file_entry in manifest.files:
+            if file_entry.path in seen_node_ids:
+                continue
+            seen_node_ids.add(file_entry.path)
+
             node_type = _classify_node(file_entry.path, file_entry.language)
             node = GraphNode(
                 id=file_entry.path,
@@ -64,28 +72,42 @@ class Grapher(BaseAgent):
                 lines_of_code=file_entry.content.count("\n") + 1,
             )
             nodes.append(node)
-            if node_type == NodeType.ENTRY_POINT:
+            if node_type == NodeType.ENTRY_POINT and file_entry.path not in seen_entry_points:
+                seen_entry_points.add(file_entry.path)
                 entry_points.append(file_entry.path)
 
         await self.report_progress(0.5, "Resolving import edges...")
 
         edge_id = 0
+        seen_edges: set[tuple[str, str, str, tuple[str, ...]]] = set()
         for file_entry in manifest.files:
             imported = self._extract_local_imports(
                 file_entry.content, file_entry.language, file_entry.path
             )
             for target_path, symbols in imported:
-                if target_path in file_map:
-                    edges.append(
-                        GraphEdge(
-                            id=f"e{edge_id}",
-                            source=file_entry.path,
-                            target=target_path,
-                            relation=EdgeRelation.IMPORTS,
-                            imported_symbols=symbols,
-                        )
+                if target_path not in file_map:
+                    continue
+
+                edge_key = (
+                    file_entry.path,
+                    target_path,
+                    EdgeRelation.IMPORTS.value,
+                    tuple(symbols),
+                )
+                if edge_key in seen_edges:
+                    continue
+                seen_edges.add(edge_key)
+
+                edges.append(
+                    GraphEdge(
+                        id=f"e{edge_id}",
+                        source=file_entry.path,
+                        target=target_path,
+                        relation=EdgeRelation.IMPORTS,
+                        imported_symbols=symbols,
                     )
-                    edge_id += 1
+                )
+                edge_id += 1
 
         await self.report_progress(0.9, "Graph complete.")
 
