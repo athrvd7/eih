@@ -1,4 +1,5 @@
 # Engineering Intelligence Hub (EIH)
+<img width="1440" height="833" alt="Screenshot 2026-06-11 at 1 54 48 AM" src="https://github.com/user-attachments/assets/49948a4c-4c41-4c84-a3c2-d12867208bab" />
 
 **AI-powered codebase intelligence for faster onboarding, architecture discovery, and grounded code Q&A.**
 
