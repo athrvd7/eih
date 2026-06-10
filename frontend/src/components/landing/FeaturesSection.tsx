@@ -6,28 +6,32 @@ const FEATURES = [
     title: "Dependency graph",
     description:
       "Interactive file-level graph built from import analysis. Click any node for context and AI summaries.",
-    accent: "var(--node-component)",
+    meta: "Visual exploration",
+    large: true,
   },
   {
     icon: Route,
     title: "Guided walkthrough",
     description:
       "An ordered tour from entry points through core services — generated lazily when you need it.",
-    accent: "var(--node-entry)",
+    meta: "On demand",
+    large: false,
   },
   {
     icon: FileText,
     title: "Onboarding docs",
     description:
       "Purpose, tech stack, architecture, and setup guide tailored to the repo — editable and exportable.",
-    accent: "var(--node-config)",
+    meta: "Auto-generated",
+    large: false,
   },
   {
     icon: MessageSquare,
     title: "RAG chat",
     description:
       "Ask questions grounded in your codebase with inline citations linking back to source lines.",
-    accent: "var(--accent-blue)",
+    meta: "Grounded AI",
+    large: true,
   },
 ];
 
@@ -45,21 +49,19 @@ export function FeaturesSection() {
         </p>
       </div>
 
-      <div className="features-grid">
+      <div className="bento-grid bento-grid--features">
         {FEATURES.map((feature, i) => (
           <article
             key={feature.title}
-            className="feature-card"
-            style={{ animationDelay: `${i * 80}ms` }}
+            className={`bento-card ${feature.large ? "bento-card--large" : ""}`}
+            style={{ animationDelay: `${i * 100}ms` }}
           >
-            <div
-              className="feature-card__icon"
-              style={{ color: feature.accent, borderColor: feature.accent }}
-            >
-              <feature.icon size={20} strokeWidth={1.75} aria-hidden="true" />
+            <div className="bento-card__icon">
+              <feature.icon size={22} strokeWidth={1.75} aria-hidden="true" />
             </div>
-            <h3 className="feature-card__title">{feature.title}</h3>
-            <p className="feature-card__desc">{feature.description}</p>
+            <h3 className="bento-card__title">{feature.title}</h3>
+            <p className="bento-card__desc">{feature.description}</p>
+            <span className="bento-card__meta">{feature.meta}</span>
           </article>
         ))}
       </div>

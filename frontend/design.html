@@ -1,0 +1,2491 @@
+
+HTML preview runs in an isolated sandbox with scripts enabled.
+<!
+DOCTYPE
+ 
+html
+>
+
+<
+html
+ 
+lang
+=
+"
+en
+"
+>
+
+<
+head
+>
+
+    
+<
+meta
+ 
+charset
+=
+"
+UTF-8
+"
+>
+
+    
+<
+meta
+ 
+name
+=
+"
+viewport
+"
+ 
+content
+=
+"
+width=device-width, initial-scale=1.0
+"
+>
+
+    
+<
+title
+>
+Lexicon for Creators
+</
+title
+>
+
+    
+<!-- Fonts -->
+
+    
+<
+link
+ 
+rel
+=
+"
+preconnect
+"
+ 
+href
+=
+"
+https://fonts.googleapis.com
+"
+>
+
+    
+<
+link
+ 
+rel
+=
+"
+preconnect
+"
+ 
+href
+=
+"
+https://fonts.gstatic.com
+"
+ 
+crossorigin
+>
+
+    
+<
+link
+ 
+href
+=
+"
+https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Playfair+Display:ital,wght@0,400;1,400&family=Silkscreen&display=swap
+"
+ 
+rel
+=
+"
+stylesheet
+"
+>
+
+    
+<!-- Tailwind CSS -->
+
+    
+<
+script
+ 
+src
+=
+"
+https://cdn.tailwindcss.com
+"
+>
+</
+script
+>
+
+    
+<!-- Iconify -->
+
+    
+<
+script
+ 
+src
+=
+"
+https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js
+"
+>
+</
+script
+>
+
+    
+<
+script
+>
+
+        tailwind
+.
+config
+ 
+=
+ 
+{
+
+            
+theme
+:
+ 
+{
+
+                
+extend
+:
+ 
+{
+
+                    
+fontFamily
+:
+ 
+{
+
+                        
+sans
+:
+ 
+[
+'Inter'
+,
+ 
+'sans-serif'
+]
+,
+
+                        
+serif
+:
+ 
+[
+'Playfair Display'
+,
+ 
+'serif'
+]
+,
+
+                        
+pixel
+:
+ 
+[
+'Silkscreen'
+,
+ 
+'cursive'
+]
+,
+
+                    
+}
+,
+
+                    
+colors
+:
+ 
+{
+
+                        
+'bubble-bg'
+:
+ 
+'#ffffff'
+,
+
+                    
+}
+
+                
+}
+
+            
+}
+
+        
+}
+
+    
+</
+script
+>
+
+</
+head
+>
+
+<
+body
+ 
+class
+=
+"
+font-sans antialiased text-white overflow-x-hidden min-h-screen relative selection:bg-white/30
+"
+>
+
+    
+<!-- WebGL Background Canvas -->
+
+    
+<
+canvas
+ 
+id
+=
+"
+glcanvas
+"
+ 
+class
+=
+"
+fixed inset-0 w-full h-full -z-20
+"
+>
+</
+canvas
+>
+
+    
+<!-- Fallback background gradient (behind WebGL) -->
+
+    
+<
+div
+ 
+class
+=
+"
+fixed inset-0 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] -z-30
+"
+>
+</
+div
+>
+
+    
+<!-- Container Lines Overlay -->
+
+    
+<
+div
+ 
+class
+=
+"
+fixed inset-0 pointer-events-none -z-10 flex justify-between px-4 md:px-12 opacity-30
+"
+>
+
+        
+<!-- Vertical Line 1 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 2 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 3 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative hidden md:block
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 4 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative hidden md:block
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 5 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative hidden lg:block
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 6 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative hidden lg:block
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+         
+<!-- Vertical Line 7 -->
+
+         
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative hidden md:block
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 8 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative hidden md:block
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 9 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Vertical Line 10 -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-[1px] h-full bg-white/40 relative
+"
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+            
+<
+div
+ 
+class
+=
+"
+absolute bottom-0 -left-[1.5px] w-1 h-1 bg-white/80
+"
+>
+</
+div
+>
+
+        
+</
+div
+>
+
+    
+</
+div
+>
+
+    
+<!-- Navigation -->
+
+    
+<
+nav
+ 
+class
+=
+"
+relative z-10 w-full px-6 py-6 md:px-12 flex items-center justify-between
+"
+>
+
+        
+<!-- Logo -->
+
+        
+<
+div
+ 
+class
+=
+"
+w-10 h-10 bg-black text-white rounded-xl flex items-center justify-center font-sans font-normal text-lg tracking-tight shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]
+"
+>
+
+            L
+        
+</
+div
+>
+
+        
+<!-- Center Links -->
+
+        
+<
+div
+ 
+class
+=
+"
+hidden md:flex items-center gap-10 text-sm font-normal text-white/80
+"
+>
+
+            
+<
+a
+ 
+href
+=
+"
+#
+"
+ 
+class
+=
+"
+hover:text-white transition-colors duration-200
+"
+>
+Capabilities
+</
+a
+>
+
+            
+<
+a
+ 
+href
+=
+"
+#
+"
+ 
+class
+=
+"
+hover:text-white transition-colors duration-200
+"
+>
+Plans
+</
+a
+>
+
+            
+<
+a
+ 
+href
+=
+"
+#
+"
+ 
+class
+=
+"
+hover:text-white transition-colors duration-200
+"
+>
+Support
+</
+a
+>
+
+        
+</
+div
+>
+
+        
+<!-- Right Action -->
+
+        
+<
+a
+ 
+href
+=
+"
+#
+"
+ 
+class
+=
+"
+flex items-center gap-1 text-sm font-normal text-white hover:text-white/80 transition-colors duration-200
+"
+>
+
+            Get started
+            
+<
+iconify-icon
+ 
+icon
+=
+"
+solar:arrow-right-up-linear
+"
+ 
+width
+=
+"
+16
+"
+ 
+height
+=
+"
+16
+"
+ 
+class
+=
+"
+mt-0.5
+"
+>
+</
+iconify-icon
+>
+
+        
+</
+a
+>
+
+    
+</
+nav
+>
+
+    
+<!-- Main Content -->
+
+    
+<
+main
+ 
+class
+=
+"
+relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-88px)] px-4 pb-20
+"
+>
+
+        
+<!-- Top Badge -->
+
+        
+<
+div
+ 
+class
+=
+"
+flex items-center gap-2 mb-8 text-white/90
+"
+>
+
+            
+<
+iconify-icon
+ 
+icon
+=
+"
+solar:stars-linear
+"
+ 
+width
+=
+"
+16
+"
+ 
+height
+=
+"
+16
+"
+>
+</
+iconify-icon
+>
+
+            
+<
+span
+ 
+class
+=
+"
+text-xs uppercase tracking-[0.2em] font-normal
+"
+>
+Free to start
+</
+span
+>
+
+        
+</
+div
+>
+
+        
+<!-- Hero Typography -->
+
+        
+<
+div
+ 
+class
+=
+"
+flex flex-col items-center text-center relative z-20
+"
+>
+
+            
+<!-- Brand with Squiggly -->
+
+            
+<
+div
+ 
+class
+=
+"
+relative inline-block pb-4 md:pb-6
+"
+>
+
+                
+<
+h1
+ 
+class
+=
+"
+font-serif text-6xl md:text-8xl leading-none tracking-tight text-white drop-shadow-sm
+"
+>
+
+                    Lexicon
+                
+</
+h1
+>
+
+                
+<!-- White Squiggly Underline via inline style for exactness -->
+
+                
+<
+div
+ 
+class
+=
+"
+absolute bottom-1 md:bottom-2 left-0 w-full h-3 md:h-4 opacity-90
+"
+
+                     
+style
+=
+"
+background-image
+:
+ 
+url
+(
+'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 6\'><path d=\'M0 3 Q 5 0 10 3 T 20 3\' fill=\'none\' stroke=\'%23FFFFFF\' stroke-width=\'2\' stroke-linecap=\'round\'/></svg>'
+)
+;
+ 
+background-repeat
+:
+ repeat-x
+;
+ 
+background-size
+:
+ 
+24
+px
+ 
+100
+%
+;
+"
+>
+
+                
+</
+div
+>
+
+            
+</
+div
+>
+
+            
+<!-- for Creators -->
+
+            
+<
+div
+ 
+class
+=
+"
+flex items-baseline gap-3 md:gap-5 mt-[-10px] md:mt-[-20px] relative z-10
+"
+>
+
+                
+<
+span
+ 
+class
+=
+"
+font-serif text-4xl md:text-7xl tracking-tight text-white drop-shadow-sm
+"
+>
+for
+</
+span
+>
+
+                
+<
+span
+ 
+class
+=
+"
+font-pixel text-5xl md:text-8xl tracking-tight text-white drop-shadow-sm
+"
+>
+Creators
+</
+span
+>
+
+            
+</
+div
+>
+
+            
+<!-- 3D Chat Bubble Overlaid -->
+
+            
+<
+div
+ 
+class
+=
+"
+absolute top-[80%] md:top-[75%] left-[50%] -translate-x-1/2 rotate-0 group hover:-translate-y-1 transition-transform duration-500 ease-out z-30
+"
+>
+
+                
+<
+div
+ 
+class
+=
+"
+relative bg-bubble-bg px-6 py-4 rounded-[1.5rem] shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] border border-white/40
+"
+
+                     
+style
+=
+"
+box-shadow
+:
+ inset 
+0
+px
+ 
+4
+px
+ 
+12
+px
+ 
+rgba
+(
+255
+,
+255
+,
+255
+,
+0.8
+)
+,
+ inset 
+0
+px
+ 
+-4
+px
+ 
+12
+px
+ 
+rgba
+(
+0
+,
+0
+,
+0
+,
+0.05
+)
+,
+ 
+0
+_2.8px_2.2px_
+rgba
+(
+0
+,
+_0
+,
+_0
+,
+_0.034
+)
+,
+_0_6.7px_5.3px_
+rgba
+(
+0
+,
+_0
+,
+_0
+,
+_0.048
+)
+,
+_0_12.5px_10px_
+rgba
+(
+0
+,
+_0
+,
+_0
+,
+_0.06
+)
+,
+_0_22.3px_17.9px_
+rgba
+(
+0
+,
+_0
+,
+_0
+,
+_0.072
+)
+,
+_0_41.8px_33.4px_
+rgba
+(
+0
+,
+_0
+,
+_0
+,
+_0.086
+)
+,
+_0_100px_80px_
+rgba
+(
+0
+,
+_0
+,
+_0
+,
+_0.12
+)
+;
+"
+>
+
+                    
+<!-- Centered Bubble Tail -->
+
+                    
+<
+div
+ 
+class
+=
+"
+absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-0
+                                border-l-[12px] border-r-[12px] border-t-[18px]
+                                border-l-transparent border-r-transparent border-t-bubble-bg
+                                drop-shadow-sm z-[-1]
+"
+>
+
+                    
+</
+div
+>
+
+                    
+<!-- Typewriter Text -->
+
+                    
+<
+div
+ 
+class
+=
+"
+font-sans font-normal text-black/80 text-sm md:text-base tracking-tight flex items-center
+"
+>
+
+                        Drafting...
+<
+span
+ 
+class
+=
+"
+inline-block w-[1.5px] h-4 bg-black/60 ml-[1px] animate-pulse
+"
+>
+</
+span
+>
+
+                    
+</
+div
+>
+
+                
+</
+div
+>
+
+            
+</
+div
+>
+
+        
+</
+div
+>
+
+        
+<!-- Description -->
+
+        
+<
+p
+ 
+class
+=
+"
+mt-28 md:mt-32 text-center text-white/90 text-sm md:text-base max-w-[280px] md:max-w-sm font-normal leading-relaxed
+"
+>
+
+            Transform raw thoughts into precise instructions.
+<
+br
+>
+
+            Better AI outcomes instantly.
+        
+</
+p
+>
+
+        
+<!-- CTA Buttons -->
+
+        
+<
+div
+ 
+class
+=
+"
+mt-8 flex flex-col sm:flex-row items-center gap-4
+"
+>
+
+            
+<!-- Primary Button -->
+
+            
+<
+button
+ 
+class
+=
+"
+bg-white text-black px-7 py-3 rounded-full font-normal text-sm flex items-center gap-2 hover:bg-white/90 transition-all duration-200 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] hover:scale-[1.02] active:scale-[0.98]
+"
+>
+
+                Get started
+                
+<
+iconify-icon
+ 
+icon
+=
+"
+solar:arrow-right-up-linear
+"
+ 
+width
+=
+"
+16
+"
+ 
+height
+=
+"
+16
+"
+ 
+stroke-width
+=
+"
+1.5
+"
+>
+</
+iconify-icon
+>
+
+            
+</
+button
+>
+
+            
+<!-- Secondary Button with Gradient Border -->
+
+            
+<
+div
+ 
+class
+=
+"
+p-[1px] rounded-full bg-gradient-to-b from-white/40 to-white/10 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]
+"
+>
+
+                
+<
+button
+ 
+class
+=
+"
+bg-transparent backdrop-blur-md text-white px-7 py-3 rounded-full font-normal text-sm flex items-center gap-2 hover:bg-white/5 transition-all duration-200 h-full w-full
+"
+>
+
+                    Watch preview
+                    
+<
+iconify-icon
+ 
+icon
+=
+"
+solar:play-circle-linear
+"
+ 
+width
+=
+"
+18
+"
+ 
+height
+=
+"
+18
+"
+ 
+stroke-width
+=
+"
+1.5
+"
+>
+</
+iconify-icon
+>
+
+                
+</
+button
+>
+
+            
+</
+div
+>
+
+        
+</
+div
+>
+
+    
+</
+main
+>
+
+    
+<!-- WebGL Animation Script -->
+
+    
+<
+script
+>
+
+        
+const
+ canvas 
+=
+ 
+document
+.
+getElementById
+(
+'glcanvas'
+)
+;
+
+        
+const
+ gl 
+=
+ canvas
+.
+getContext
+(
+'webgl'
+)
+;
+
+        
+if
+ 
+(
+!
+gl
+)
+ 
+{
+
+            
+console
+.
+error
+(
+'WebGL not supported'
+)
+;
+
+        
+}
+ 
+else
+ 
+{
+
+            
+// Vertex Shader
+
+            
+const
+ vsSource 
+=
+ 
+`
+
+                attribute vec4 aVertexPosition;
+                void main() {
+                    gl_Position = aVertexPosition;
+                }
+            
+`
+;
+
+            
+// Fragment Shader (Fluid gradient logic updated for vibrant orange)
+
+            
+const
+ fsSource 
+=
+ 
+`
+
+                precision highp float;
+                uniform vec2 u_resolution;
+                uniform float u_time;
+                // Modulo 289 without division
+                vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+                vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+                // Simplex noise function
+                float snoise(vec2 v) {
+                    const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+                    vec2 i  = floor(v + dot(v, C.yy) );
+                    vec2 x0 = v -   i + dot(i, C.xx);
+                    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+                    vec4 x12 = x0.xyxy + C.xxzz;
+                    x12.xy -= i1;
+                    i = mod289(i); // Avoid truncation effects in permutation
+                    vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+                    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+                    m = m*m ;
+                    m = m*m ;
+                    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+                    vec3 h = abs(x) - 0.5;
+                    vec3 ox = floor(x + 0.5);
+                    vec3 a0 = x - ox;
+                    m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+                    vec3 g;
+                    g.x  = a0.x  * x0.x  + h.x  * x0.y;
+                    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+                    return 130.0 * dot(m, g);
+                }
+                void main() {
+                    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+                    st.x *= u_resolution.x / u_resolution.y;
+                    // Create fluid motion
+                    float t = u_time * 0.2;
+                    // Generate noise layers
+                    float n1 = snoise(st * 1.5 + vec2(t, t * 0.5));
+                    float n2 = snoise(st * 2.5 - vec2(t * 0.8, t * 0.3));
+                    float n3 = snoise(st * 1.0 + vec2(-t, t * 0.7));
+                    // Combine noise
+                    float noise = (n1 + n2 * 0.5 + n3 * 0.25) / 1.75;
+                    // Map noise to smooth gradient
+                    noise = noise * 0.5 + 0.5;
+                    // Color palette based on user request (Oranges)
+                    vec3 color1 = vec3(1.0, 0.45, 0.1);  // Bright Orange
+                    vec3 color2 = vec3(0.9, 0.2, 0.05);  // Deep Red-Orange
+                    vec3 color3 = vec3(1.0, 0.65, 0.15); // Yellow-Orange
+                    // Vertical banding base
+                    float verticalBand = sin(gl_FragCoord.x * 0.005) * 0.5 + 0.5;
+                    // Mix colors based on noise and position
+                    vec3 finalColor = mix(color1, color2, noise);
+                    finalColor = mix(finalColor, color3, verticalBand * 0.3 * sin(t));
+                    gl_FragColor = vec4(finalColor, 1.0);
+                }
+            
+`
+;
+
+            
+function
+ 
+initShaderProgram
+(
+gl
+,
+ vsSource
+,
+ fsSource
+)
+ 
+{
+
+                
+const
+ vertexShader 
+=
+ 
+loadShader
+(
+gl
+,
+ gl
+.
+VERTEX_SHADER
+,
+ vsSource
+)
+;
+
+                
+const
+ fragmentShader 
+=
+ 
+loadShader
+(
+gl
+,
+ gl
+.
+FRAGMENT_SHADER
+,
+ fsSource
+)
+;
+
+                
+const
+ shaderProgram 
+=
+ gl
+.
+createProgram
+(
+)
+;
+
+                gl
+.
+attachShader
+(
+shaderProgram
+,
+ vertexShader
+)
+;
+
+                gl
+.
+attachShader
+(
+shaderProgram
+,
+ fragmentShader
+)
+;
+
+                gl
+.
+linkProgram
+(
+shaderProgram
+)
+;
+
+                
+if
+ 
+(
+!
+gl
+.
+getProgramParameter
+(
+shaderProgram
+,
+ gl
+.
+LINK_STATUS
+)
+)
+ 
+{
+
+                    
+console
+.
+error
+(
+'Unable to initialize the shader program: '
+ 
++
+ gl
+.
+getProgramInfoLog
+(
+shaderProgram
+)
+)
+;
+
+                    
+return
+ 
+null
+;
+
+                
+}
+
+                
+return
+ shaderProgram
+;
+
+            
+}
+
+            
+function
+ 
+loadShader
+(
+gl
+,
+ type
+,
+ source
+)
+ 
+{
+
+                
+const
+ shader 
+=
+ gl
+.
+createShader
+(
+type
+)
+;
+
+                gl
+.
+shaderSource
+(
+shader
+,
+ source
+)
+;
+
+                gl
+.
+compileShader
+(
+shader
+)
+;
+
+                
+if
+ 
+(
+!
+gl
+.
+getShaderParameter
+(
+shader
+,
+ gl
+.
+COMPILE_STATUS
+)
+)
+ 
+{
+
+                    
+console
+.
+error
+(
+'An error occurred compiling the shaders: '
+ 
++
+ gl
+.
+getShaderInfoLog
+(
+shader
+)
+)
+;
+
+                    gl
+.
+deleteShader
+(
+shader
+)
+;
+
+                    
+return
+ 
+null
+;
+
+                
+}
+
+                
+return
+ shader
+;
+
+            
+}
+
+            
+const
+ shaderProgram 
+=
+ 
+initShaderProgram
+(
+gl
+,
+ vsSource
+,
+ fsSource
+)
+;
+
+            
+const
+ programInfo 
+=
+ 
+{
+
+                
+program
+:
+ shaderProgram
+,
+
+                
+attribLocations
+:
+ 
+{
+
+                    
+vertexPosition
+:
+ gl
+.
+getAttribLocation
+(
+shaderProgram
+,
+ 
+'aVertexPosition'
+)
+,
+
+                
+}
+,
+
+                
+uniformLocations
+:
+ 
+{
+
+                    
+resolution
+:
+ gl
+.
+getUniformLocation
+(
+shaderProgram
+,
+ 
+'u_resolution'
+)
+,
+
+                    
+time
+:
+ gl
+.
+getUniformLocation
+(
+shaderProgram
+,
+ 
+'u_time'
+)
+,
+
+                
+}
+,
+
+            
+}
+;
+
+            
+const
+ buffers 
+=
+ 
+initBuffers
+(
+gl
+)
+;
+
+            
+function
+ 
+initBuffers
+(
+gl
+)
+ 
+{
+
+                
+const
+ positionBuffer 
+=
+ gl
+.
+createBuffer
+(
+)
+;
+
+                gl
+.
+bindBuffer
+(
+gl
+.
+ARRAY_BUFFER
+,
+ positionBuffer
+)
+;
+
+                
+const
+ positions 
+=
+ 
+[
+
+                    
+-
+1.0
+,
+  
+1.0
+,
+
+                     
+1.0
+,
+  
+1.0
+,
+
+                    
+-
+1.0
+,
+ 
+-
+1.0
+,
+
+                     
+1.0
+,
+ 
+-
+1.0
+,
+
+                
+]
+;
+
+                gl
+.
+bufferData
+(
+gl
+.
+ARRAY_BUFFER
+,
+ 
+new
+ 
+Float32Array
+(
+positions
+)
+,
+ gl
+.
+STATIC_DRAW
+)
+;
+
+                
+return
+ 
+{
+ 
+position
+:
+ positionBuffer 
+}
+;
+
+            
+}
+
+            
+let
+ startTime 
+=
+ 
+Date
+.
+now
+(
+)
+;
+
+            
+function
+ 
+render
+(
+)
+ 
+{
+
+                
+// Resize canvas to display size
+
+                
+const
+ displayWidth  
+=
+ canvas
+.
+clientWidth
+;
+
+                
+const
+ displayHeight 
+=
+ canvas
+.
+clientHeight
+;
+
+                
+if
+ 
+(
+canvas
+.
+width
+  
+!==
+ displayWidth 
+||
+ canvas
+.
+height
+ 
+!==
+ displayHeight
+)
+ 
+{
+
+                    canvas
+.
+width
+  
+=
+ displayWidth
+;
+
+                    canvas
+.
+height
+ 
+=
+ displayHeight
+;
+
+                    gl
+.
+viewport
+(
+0
+,
+ 
+0
+,
+ gl
+.
+canvas
+.
+width
+,
+ gl
+.
+canvas
+.
+height
+)
+;
+
+                
+}
+
+                gl
+.
+clearColor
+(
+0.0
+,
+ 
+0.0
+,
+ 
+0.0
+,
+ 
+1.0
+)
+;
+
+                gl
+.
+clear
+(
+gl
+.
+COLOR_BUFFER_BIT
+)
+;
+
+                gl
+.
+useProgram
+(
+programInfo
+.
+program
+)
+;
+
+                gl
+.
+bindBuffer
+(
+gl
+.
+ARRAY_BUFFER
+,
+ buffers
+.
+position
+)
+;
+
+                gl
+.
+vertexAttribPointer
+(
+programInfo
+.
+attribLocations
+.
+vertexPosition
+,
+ 
+2
+,
+ gl
+.
+FLOAT
+,
+ 
+false
+,
+ 
+0
+,
+ 
+0
+)
+;
+
+                gl
+.
+enableVertexAttribArray
+(
+programInfo
+.
+attribLocations
+.
+vertexPosition
+)
+;
+
+                gl
+.
+uniform2f
+(
+programInfo
+.
+uniformLocations
+.
+resolution
+,
+ gl
+.
+canvas
+.
+width
+,
+ gl
+.
+canvas
+.
+height
+)
+;
+
+                
+const
+ currentTime 
+=
+ 
+(
+Date
+.
+now
+(
+)
+ 
+-
+ startTime
+)
+ 
+*
+ 
+0.001
+;
+
+                gl
+.
+uniform1f
+(
+programInfo
+.
+uniformLocations
+.
+time
+,
+ currentTime
+)
+;
+
+                gl
+.
+drawArrays
+(
+gl
+.
+TRIANGLE_STRIP
+,
+ 
+0
+,
+ 
+4
+)
+;
+
+                
+requestAnimationFrame
+(
+render
+)
+;
+
+            
+}
+
+            
+requestAnimationFrame
+(
+render
+)
+;
+
+        
+}
+
+    
+</
+script
+>
+
+</
+body
+>
+
+</
+html
+>
